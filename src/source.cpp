@@ -1,31 +1,42 @@
 #include<stdio.h>
 #include<stdlib.h>
-int main(void)
+#define N 100
+int prime(int x);
+
+
+int main()
 {
-	int a,i,j,k,l,yu,x;
-	printf("input x\n");
-	scanf_s("%d", &x);
-	a =1;
-	l = 0;
-	for (i = 1; i < x; i++)
+	int a,i,k=0;
+	for(i=1;i<=N;i++)
 	{
-		a++;
-		k = 0;
-		for (j = 2; j <=a-1; j++)
+		a=prime(i);
+		if(a==1)
 		{
-			yu = a%j;
+			printf("%d is a prime number\n",i);
+			k++;
+		}
+	}
+	printf("sum of prime unmber is %d",k);
+    system("pause");
+}
+
+int prime(int x)
+{
+	int j,k=0,yu;
+
+	for (j = 2; j <=x-1; j++)
+		{
+			yu = x%j;
 			if (yu != 0)
 			{
 				k++;
 			}
 		}
-		if (k == a - 2)
+		if (k == x - 2)
 		{
-			printf("%d is a Prime number\n", a);
-			l++;
-
+			return 1;
 		}
-	}
-	printf("sum of Prime number is %d\n", l);
-	system("pause");
+
+return 0;
+
 }
